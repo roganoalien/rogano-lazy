@@ -1,3 +1,7 @@
-# rogano-lazy
+## Lazyloader Vanilla JS
 
-Javascript Lazyloader for images
+Simple to use and does not need extra library to work.
+
+##### Before using
+
+It's not ready to be used as a plugin
