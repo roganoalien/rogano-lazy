@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>unlink</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="unlink" transform="translate(-3.000000, -3.000000)">
+            <polygon id="Path" points="1 0 25 0 25 24 1 24"></polygon>
+            <path d="M18,7 L14,7 L14,8.9 L18,8.9 C19.71,8.9 21.1,10.29 21.1,12 C21.1,13.43 20.12,14.63 18.79,14.98 L20.25,16.44 C21.88,15.61 23,13.95 23,12 C23,9.24 20.76,7 18,7 Z M17,11 L14.81,11 L16.81,13 L17,13 L17,11 Z M3,4.27 L6.11,7.38 C4.29,8.12 3,9.91 3,12 C3,14.76 5.24,17 8,17 L12,17 L12,15.1 L8,15.1 C6.29,15.1 4.9,13.71 4.9,12 C4.9,10.41 6.11,9.1 7.66,8.93 L9.73,11 L9,11 L9,13 L11.73,13 L14,15.27 L14,17 L15.73,17 L19.74,21 L21,19.74 L4.27,3 L3,4.27 Z" id="Shape" fill="#474747" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

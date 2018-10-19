@@ -1,0 +1,59 @@
+/********************
+ * ANIMATION EASING *
+ ********************/
+$a-cubic = cubic-bezier(.33,.19,.58,1.27)
+/*************************
+ * SIMPLE FADE ANIMATION *
+ *************************/
+.lazy-fade{
+    opacity 1
+    transition all 1s $a-cubic
+    &.rogano-lazy{
+        opacity 0
+    }
+}
+/*****************
+ * FADE FROM 10% *
+ *****************/
+.lazy-half{
+    @extend .lazy-fade
+    &.rogano-lazy{
+        opacity .1
+    }
+}
+/**********************************
+ * APPEAR FROM BOTTOM TO POSITION *
+ **********************************/
+.lazy-translate{
+    opacity 1
+    transform translateY(0%)
+    transition all 1s $a-cubic
+    &.rogano-lazy{
+        opacity 0
+        transform translateY(25%)
+    }
+}
+/******************************************************
+ * ROTATE, WITH SCALE AND FADE (ALL WITH PERSPECTIVE) *
+ ******************************************************/
+.lazy-folder{
+    opacity 1
+    transform scale(1) perspective(600px) rotateX(0)
+    transition all .75s $a-cubic
+    &.rogano-lazy{
+        opacity 0
+        transform scale(1.1) perspective(600px) rotateX(-45deg)
+    }
+}
+/******************
+ * SCALE AND FADE *
+ ******************/
+ .lazy-scale{
+	opacity 1
+	transform scale(1)
+	transition all .75s $a-cubic
+	&.rogano-lazy{
+		opacity 0
+		transform scale(0.75)
+	}
+}

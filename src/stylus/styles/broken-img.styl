@@ -1,0 +1,49 @@
+/*************************************
+ *           BROKEN IMAGE            *
+ * STYLES IN CASE AN IMAGE IS BROKEN *
+ *************************************/
+.lazy-broken{
+    display block
+    font-family $f-bold
+    line-height 1.5
+    min-height 200px
+    position relative
+    &.broken-img{
+        &:after{
+            absolute-l-t(0, 0)
+            flex-center()
+            background $c-broken
+            content url('svg/broken.svg') '\A Image seems to be broken :c \A' attr(alt)
+            color $c-black
+            // display block
+            font-size 16px
+            height 100%
+            text-align center
+            white-space pre-wrap
+            width 100%
+            z-index 2
+        }
+    }
+    &.unlink-img{
+        &:after{
+            absolute-l-t(0, 0)
+            flex-center()
+            background $c-broken
+            content url('svg/unlink.svg') '\A Image seems to be broken :c \A' attr(alt)
+            color $c-black
+            // display block
+            font-size 16px
+            height 100%
+            text-align center
+            white-space pre-wrap
+            width 100%
+            z-index 2
+        }
+    }
+    // &:before{
+    //     content "We are sorry, the image is broken :c"
+    //     display block
+    //     font-size 13px
+    //     margin-bottom 10px
+    // }
+}

@@ -1,0 +1,19 @@
+absolute-l-t($left, $t-x, $top = $left, $t-y = $t-x){
+    left $left
+    position absolute
+    top $top
+    transform translate($t-x, $t-y)
+}
+flex-center(){
+    align-items center
+    display flex
+    flex-wrap nowrap
+    justify-content center
+}
+my-animation($name, $duration, $delay, $timing, $fill){
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-timing-function: $timing;
+    animation-fill-mode: $fill;
+}

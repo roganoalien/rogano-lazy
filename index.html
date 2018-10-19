@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>rogano-lazy</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+	<link rel="stylesheet" href="./dist/css/roganolazy.css">
+	<style>
+		body{
+			align-items: center;
+			background: #f1f1f1;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			padding: 40px 0;
+			width: 100vw;
+		}
+		img{
+            display: block;
+            min-height: 100px;
+			height: auto;
+			margin-bottom: 40px;
+			width: 500px;
+		}
+	</style>
+</head>
+<body>
+	<img data-src="img/01.png" src="img/x.png" class="lazy-framework lazy-shadow lazy-broken" alt="Image 01" data-broken="unlink">
+	<img data-src="img/02.png" src="img/02.png" class="lazy-framework lazy-shadow lazy-broken" alt="Image 02" data-broken="unlink">
+	<img class="rogano-lazy lazy-framework lazy-shadow lazy-folder" data-src="img/03.png" src="img/03-blur.jpg" alt="Image 03">
+	<img class="rogano-lazy lazy-framework lazy-shadow lazy-folder" data-src="img/04.jpg" src="img/04-blur.jpg" alt="Image 04">
+	<img class="rogano-lazy lazy-framework lazy-shadow lazy-folder" data-src="img/05.png" src="img/05-blur.jpg" alt="Image 05">
+	<img class="rogano-lazy lazy-framework lazy-shadow lazy-folder" data-src="img/06.png" src="img/06-blur.jpg" alt="Image 06">
+	<img class="rogano-lazy lazy-framework lazy-shadow lazy-folder" data-src="img/07.png" src="img/07-blur.jpg" alt="Image 07">
+	<img class="rogano-lazy lazy-framework lazy-shadow lazy-folder" data-src="img/08.jpg" src="img/08-blur.jpg" alt="Image 08">
+	<img class="rogano-lazy lazy-framework lazy-shadow lazy-folder" data-src="img/09.jpg" src="img/09-blur.jpg" alt="Image 09">
+	<img class="rogano-lazy lazy-framework lazy-shadow lazy-folder" data-src="img/10.jpg" src="img/10-blur.jpg" alt="Image 10">
+	<img class="rogano-lazy lazy-framework lazy-shadow lazy-folder" data-src="img/11.png" src="img/11-blur.jpg" alt="Image 11">
+	<script src="./dist/js/roganolazy.js"></script>
+	<script>
+        // Document.ready like with vanilla js
+        document.addEventListener('DOMContentLoaded', function(){
+            LAZY.init();
+        });
+	</script>
+</body>
+</html>
