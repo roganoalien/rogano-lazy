@@ -1,0 +1,29 @@
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>README.md</title>
+      </head>
+      <body>
+        <h2 id="lazyloader-vanilla-js">Lazyloader Vanilla JS</h2>
+<p>Simple to use and does not need extra library to work.</p>
+<h5 id="getting-started">Getting Started</h5>
+<p>Download and load the script and css. Then call it</p>
+<pre><code class="lang-javascript">let lazyload = new Lazy();
+</code></pre>
+<p>It does not requires arguments, it already listens for <code>.rogano-lazy</code> and <code>.lazy-broken</code> classes for lazyloader and broken images. </p>
+<h5 id="arguments">Arguments</h5>
+<p>It only has 3 arguments, use them only in case you want to change the delay time before start loading the image and change the classes it listens.</p>
+<pre><code class="lang-javascript">let lazyload = new Lazy(delayInt, &#39;.lazy-image-class&#39;, &#39;.broken-image-class&#39;);
+</code></pre>
+<p>Change classes only if you want a custom animation.</p>
+<h5 id="animations">Animations</h5>
+<ul>
+<li><strong>.lazy-fade</strong>: simple fade in animation with no translation</li>
+<li><strong>.lazy-half</strong>: from half transparent from full opacity with no translation</li>
+<li><strong>.lazy-translate</strong>: translation from bottom to regular position</li>
+<li><strong>.lazy-folder</strong>: from perspective with rotationX to default position</li>
+<li><strong>.lazy-scale</strong>: simple scale animation from smallto regular size</li>
+</ul>
+
+      </body>
+    </html>

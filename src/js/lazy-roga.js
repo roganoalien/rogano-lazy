@@ -1,5 +1,5 @@
 class Lazy {
-    constructor(lazyload = '.rogano-lazy', broken = '.lazy-broken', delay = 10){
+    constructor(delay = 10, lazyload = '.rogano-lazy', broken = '.lazy-broken'){
         this._timeout;
         this.broken = document.querySelectorAll(`img${broken}`);
         this.data = 'data-broken';
