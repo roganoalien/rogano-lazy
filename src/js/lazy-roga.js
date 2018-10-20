@@ -1,15 +1,19 @@
 class Lazy {
-    constructor(delay = 10, lazyload = '.rogano-lazy', broken = '.lazy-broken'){
+    constructor(delay = 0, lazyload = '.rogano-lazy', broken = '.lazy-broken'){
         this._timeout;
         this.broken = document.querySelectorAll(`img${broken}`);
         this.data = 'data-broken';
         this.delay = delay;
         this.lazyload = lazyload;
+        // this.lazyInit;
+        this.listener = this.lazyInit.bind(this);
+        this.document = document;
+        this.window = window;
         this.lazyClass = this.lazyload.split('.').join('');
         this.img = document.querySelectorAll(`img${this.lazyload}`);
         this.initEvents();
         this.initBroken();
-        // this.lazyInit();
+        this.lazyInit();
     }
 
     initBroken(){
@@ -21,9 +25,9 @@ class Lazy {
     }
 
     initEvents(){
-        document.addEventListener('scroll', ()=>this.lazyInit());
-        window.addEventListener('resize', ()=>this.lazyInit());
-        window.addEventListener('orientationchange', ()=>this.lazyInit());
+        this.document.addEventListener('scroll', this.listener);
+        this.window.addEventListener('resize', this.listener);
+        this.window.addEventListener('orientationchange', this.listener);
     }
 
     whichSvg(i){
@@ -36,20 +40,20 @@ class Lazy {
     }
 
     lazyInit(){
+        let myImg = document.querySelectorAll(this.lazyload);
         if(this._timeout){ clearTimeout(this._timeout);}
-        if(this.img.length === 0){
+        console.log(myImg.length);
+        if(myImg.length === 0){
             console.log('Remueve');
-            document.removeEventListener('scroll', this.lazyInit());
-            window.removeEventListener('resize', ()=>this.lazyInit());
-            window.removeEventListener('orientationchange', ()=>this.lazyInit());
+            this.document.removeEventListener('scroll', this.listener);
+            this.window.removeEventListener('resize', this.listener);
+            this.window.removeEventListener('orientationchange', this.listener);
             return false;
         }
         this._timeout = setTimeout(()=>{
-            this.img.forEach(img=>{
-                console.log(this.isInsideViewport(img));
+            myImg.forEach(img=>{
                 if(this.isInsideViewport(img)){
                     let tempImg = new Image();
-                    console.log(this.lazyload);
                     img.classList.remove(this.lazyClass);
                     tempImg.onload = ()=>{
                         img.src = tempImg.src;
@@ -61,7 +65,6 @@ class Lazy {
     }
 
     isInsideViewport(object){
-        console.log(object);
         let scroll = window.scrollY || window.pageYOffset,
             boundsTop = object.getBoundingClientRect().top + scroll,
             viewport = {
@@ -72,6 +75,6 @@ class Lazy {
                 bottom: boundsTop + object.clientHeight,
                 top: boundsTop
             };
-            return (bounds.bottom >= viewport.top && bounds.bottom <= viewport.bottom) || (bounds.top <= viewport.bottom && bounds.top >= viewport.top);
+        return (bounds.bottom >= viewport.top && bounds.bottom <= viewport.bottom) || (bounds.top <= viewport.bottom && bounds.top >= viewport.top);
     }
 }
