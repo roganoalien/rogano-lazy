@@ -5,7 +5,6 @@ class Lazy {
         this.data = 'data-broken';
         this.delay = delay;
         this.lazyload = lazyload;
-        // this.lazyInit;
         this.listener = this.lazyInit.bind(this);
         this.document = document;
         this.window = window;
@@ -15,7 +14,9 @@ class Lazy {
         this.initBroken();
         this.lazyInit();
     }
-
+    /*******************************************
+     * BROKEN FUNCTION TO ADD THE CLASS NEEDED *
+     *******************************************/
     initBroken(){
         let _attr;
         this.broken.forEach(img => {
@@ -23,13 +24,17 @@ class Lazy {
             img.classList.add(this.whichSvg(_attr));
         });
     }
-
+    /*****************************************
+     * START EVENTS LISTENERS FOR LAZYLOADER *
+     *****************************************/
     initEvents(){
         this.document.addEventListener('scroll', this.listener);
         this.window.addEventListener('resize', this.listener);
         this.window.addEventListener('orientationchange', this.listener);
     }
-
+    /************************************
+     * SELECTS THE CLASS TO ADD THE SVG *
+     ************************************/
     whichSvg(i){
         switch(i){
             case "broken":
@@ -38,32 +43,44 @@ class Lazy {
                 return 'unlink-img';
         }
     }
-
+    /*******************
+     * LAZYLOADERSTART *
+     *******************/
     lazyInit(){
+        // get all objects with same className
         let myImg = document.querySelectorAll(this.lazyload);
+        //clears timeout
         if(this._timeout){ clearTimeout(this._timeout);}
-        console.log(myImg.length);
+        // If there is no more imgs to load detach eventlisteners
         if(myImg.length === 0){
-            console.log('Remueve');
             this.document.removeEventListener('scroll', this.listener);
             this.window.removeEventListener('resize', this.listener);
             this.window.removeEventListener('orientationchange', this.listener);
             return false;
         }
+        // Start timeout to do changes
         this._timeout = setTimeout(()=>{
+            // cycle through every image
             myImg.forEach(img=>{
+                // validate if is inside
                 if(this.isInsideViewport(img)){
+                    // create fake temp image to load
                     let tempImg = new Image();
+                    // remove class for lazyloader
                     img.classList.remove(this.lazyClass);
+                    // when finishes loading fake temp image then add it to the real img src
                     tempImg.onload = ()=>{
                         img.src = tempImg.src;
                     }
+                    // add the dataset src from real img to fake temp image
                     tempImg.src = img.dataset.src;
                 }
             });
         }, this.delay);
     }
-
+    /*************************************************
+     * FUNCTION TO KNOW IF OBJECT IS INSIDE VIEWPORT *
+     *************************************************/
     isInsideViewport(object){
         let scroll = window.scrollY || window.pageYOffset,
             boundsTop = object.getBoundingClientRect().top + scroll,
